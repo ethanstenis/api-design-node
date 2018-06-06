@@ -1,15 +1,15 @@
 // TODO: create a basic server with express
 // that will send back the index.html file on a GET request to '/'
 // it should then send back jsonData on a GET to /data
-var express = require('express');
+import express from 'express';
 var app = express();
 
 var jsonData = {count: 12, message: 'hey'};
 
-var fs = require('fs');
+import { readFile } from 'fs';
 
 app.get('/', function(req, res){
-    fs.readFile('index.html', function(err, buffer){
+    readFile('index.html', function(err, buffer){
     var html = buffer.toString();
     res.setHeader('Content-Type', 'text/html');
     res.send(html);
